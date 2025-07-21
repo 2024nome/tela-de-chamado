@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/ADH LOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ADH - ATENDIMENTOS</title>
+    <style>
+ 
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imagens/adh-piaui-300x178-removebg-preview.png" alt="logo-adh">
+        <h1>ADH - AGENCIA DESEVOLVIMENTO HABITACIONAL</h1>
+        <h3>chamada de senhas</h3>
+    </header>
+    <main>
+        <div class="senha">
+            <h2>Senha Atual</h2>
+            <div class="senha-numero" id="senha">N000</div>
+            <div class="senha-buttons">
+                <button onclick="chamarSenha('N')">Normal</button>
+                <button onclick="chamarSenha('P')">Preferencial</button>
+            </div>
+            <button onclick="resetSenha('N')">Resetar Normal</button>
+            <button onclick="resetSenha('P')">Resetar Preferencial</button>
+        </div>
+        <div class="ultimas-senhas">
+            <h3>Últimas senhas chamadas</h3>
+            <ul id="lista-senhas"></ul>
+        </div>
+        <!--
+        <div class="guiches">
+            <h3>Guichês de Atendimento</h3>
+            <label for="guiche-select">Escolha o guichê:</label>
+            <select id="guiche-select">
+                <option value="" disabled selected>Selecione...</option>
+                <option value="1">Guichê 1 - Disponível</option>
+                <option value="2">Guichê 2 - Disponível</option>
+                <option value="3">Guichê 3 - Disponível</option>
+                <option value="4">Guichê 4 - Disponível</option>
+                <option value="5">Guichê 5 - Disponível</option>
+                <option value="6">Guichê 6 - Disponível</option>
+            </select>
+        </div>
+        -->
+    </main>
+    <script>
+        const vSenha = document.querySelector("#senha");
+        const listaSenhas = document.querySelector("#lista-senhas");
+        let senhaNormal = 0;
+        let senhaPreferencial = 0;
+        let ultsenha = 'N';
+        let ultimasSenhasChamadas = [];
+
+        function chamarSenha(tipo) {
+            let senhaAtual = '';
+            if (tipo === 'N') {
+                senhaNormal++;
+                ultsenha = 'N';
+                senhaAtual = 'N' + senhaNormal.toLocaleString('pt-br', { minimumIntegerDigits: 3 });
+            } else {
+                senhaPreferencial++;
+                ultsenha = 'P';
+                senhaAtual = 'P' + senhaPreferencial.toLocaleString('pt-br', { minimumIntegerDigits: 3 });
+            }
+            adicionarUltimaSenha(senhaAtual);
+            mostrarSenha();
+            mostrarUltimasSenhas();
+            animarSenha();
+        }
+
+        function resetSenha(tipo) {
+            if (tipo === 'N') {
+                senhaNormal = 0;
+                ultsenha = 'N';
+            } else {
+                senhaPreferencial = 0;
+                ultsenha = 'P';
+            }
+            mostrarSenha();
+        }
+
+        function mostrarSenha() {
+            if (ultsenha == 'N') {
+                vSenha.textContent = 'N' + senhaNormal.toLocaleString('pt-br', { minimumIntegerDigits: 3 });
+            } else {
+                vSenha.textContent = 'P' + senhaPreferencial.toLocaleString('pt-br', { minimumIntegerDigits: 3 });
+            }
+        }
+
+        function adicionarUltimaSenha(senha) {
+            ultimasSenhasChamadas.unshift(senha);
+            if (ultimasSenhasChamadas.length > 5) {
+                ultimasSenhasChamadas.pop();
+            }
+        }
+
+        function mostrarUltimasSenhas() {
+            listaSenhas.innerHTML = '';
+            ultimasSenhasChamadas.forEach(function (senha) {
+                const li = document.createElement('li');
+                li.textContent = senha;
+                li.title = "Clique para direcionar ao guichê";
+                li.onclick = function () {
+                    const guiche = document.getElementById('guiche-select').value;
+                    if (guiche) {
+                        alert('Senha ' + senha + ' direcionada para o Guichê ' + guiche);
+                    } else {
+                        alert('Selecione um guichê antes de direcionar a senha.');
+                    }
+                };
+                listaSenhas.appendChild(li);
+            });
+        }
+
+        function animarSenha() {
+            vSenha.style.background = "#b3d4fc";
+            setTimeout(() => {
+                vSenha.style.background = "#e3f0ff";
+            }, 400);
+        }
+
+        // Inicializa
+        mostrarSenha();
+        mostrarUltimasSenhas();
+    </script>
+</body>
+</html>
