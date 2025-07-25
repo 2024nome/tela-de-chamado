@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Math&family=Libertinus+Mono&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --texto-padrão: #000000;
+    --primeira-cor: #C0C0C0;
+    --segunda-cor: #696969;
+    --terceira-cor: #778899;
+    --quarta-cor: white;
+    --fundo--cor: #0000FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    opacity: 0.5rem;
+    background-image: url(/senha-painel/img/fundo/1.jpg);
+    /*background-color: var(--fundo--cor);*/
+    min-height: 100vh;
+    /*color: var(--texto-padrão);*/
+
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--terceira-cor);
+    color: var(--quarta-cor);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-sizing: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header img {
+    height: 60px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+header .relogio {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--quarta-cor);
+}
+
+/* Conteúdo principal */
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* painel de senha atual */
+.painel-senha {
+    background-color: var(--quarta-cor);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    text-align: center;
+}
+
+.senha-atual h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--texto-padrão);
+}
+
+.senha-numero {
+    font-size: 72px;
+    font-weight: bold;
+    color: var(--texto-padrão);
+    padding: 20px 40px;
+    /*border: 2px solid var(--terceira-cor);*/
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius: 10px;
+    background-color: var(--primeira-cor);
+}
+
+/* lista de senhas*/
+.ultima-senha {
+    /*background: linear-gradient(135deg, #f0f4ff 0%, #d9e4ff 100%);*/
+    padding: 32px 28px;
+    border-radius: 20px;
+    /*box-shadow: 0 8px 24px rgba(30, 58, 138, 0.15);*/
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    /*transition: box-shadow 0.3s ease, transform 0.3s ease;*/
+}
+
+/* Opcional: efeito hover elegante */
+.ultima-senha:hover {
+    /*box-shadow: 0 12px 40px rgba(30, 58, 138, 0.25);*/
+    transform: translateY(-4px);
+}
+
+.ultima-senha h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--quarta-cor);
+}
+
+#lista-senha {
+    list-style: none;
+}
+
+#lista-senhas li {
+    font-size: 20px;
+    padding: 12px;
+    background-color: var(--quarta-cor);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: var(--texto-padrão);
+    border: 6px solid var(--segunda-cor);
+    font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+}
+
+#galeria-fotos {
+    width: 500px;
+    /* Ajuste a largura conforme necessário */
+    overflow: hidden;
+    /* Esconde as imagens que estão fora do contêiner */
+    position: relative;
+}
+
+#galeria-fotos figure {
+    width: 100%;
+    float: left;
+    /* Faz as imagens ficarem lado a lado */
+    position: relative;
+    transition: left 0.5s ease;
+    /* Efeito de transição */
+}
+
+#galeria-fotos figure img {
+    width: 100%;
+    display: block;
+}
+
+/* Estilos para as legendas */
+#galeria-fotos figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
