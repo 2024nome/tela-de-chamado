@@ -1,50 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../senha-painel/static/styel.css">
-    <link rel="shortcut icon" href="../senha-painel/img/icone/house.svg" type="image/x-icon">
-    <title>Atendimentos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../senha-painel/static/styel.css">
+  <title>Painel de Senhas</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header>
-        <img src="../senha-painel/img/icone/" alt="logo-empresa">
-        <h1>Nome da Empresa</h1>
-        <div class="relogio"></div>
-    </header>
-    <main>
-        <section class="painel-senha">
-            <div class="senha-atual">
-                <h2>Senha Atual</h2>
-                <div class="senha-numero" id="senha">N000</div>
-            </div>
-        </section>
+  <!-- Cabeçalho com logo, título e relógio -->
+  <header>
+    <img src="img/icone/logo.png" alt="logo-empresa" />
+    <h1>Nome da Empresa</h1>
+    <div class="relogio" id="relogio">00:00:00</div>
+    <button id="toggle-theme" title="Alternar tema"><span id="icon-tema">🌙</span></button>
+  </header>
 
-        <section class="ultima-senhas">
-            <h3>Senhas Chamadas</h3>
-            <ul id="lista-senhas"></ul>
-        </section>
-    </main>
-    <audio id="beep-som" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" preload="auto"></audio>
-    <!--<section id="galeria-fotos">
-        <figure>
-            <img src="imagem1.jpg" alt="Descrição da imagem 1">
-            <figcaption>Legenda da imagem 1</figcaption>
-        </figure>
-        <figure>
-            <img src="imagem2.jpg" alt="Descrição da imagem 2">
-            <figcaption>Legenda da imagem 2</figcaption>
-        </figure>
-        <figure>
-            <img src="imagem3.jpg" alt="Descrição da imagem 3">
-            <figcaption>Legenda da imagem 3</figcaption>
-        </figure>
-    </section>-->
+  <!-- Conteúdo principal -->
+  <main>
+    <section class="painel-senha">
+      <div class="senha-atual">
+        <h2>Senha Atual</h2>
+        <div class="senha-numero" id="senha">N000</div>
+      </div>
+    </section>
 
-    <script src="../senha-painel/static/script.js"></script>
+    <section class="ultima-senha">
+      <h3>Senhas Chamadas</h3>
+      <ul id="lista-senhas"></ul>
+    </section>
+  </main>
+
+  <script src="../senha-painel/static/script.js"></script>
 </body>
-
 </html>
